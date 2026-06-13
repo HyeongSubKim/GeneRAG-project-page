@@ -108,6 +108,265 @@
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
 
+  <!-- =====================================================================
+       GeneRAG bespoke design overlay
+       Layered on top of the Academic Project Page template's Bulma styles.
+       Drop this <style> block to revert to the template defaults.
+       ===================================================================== -->
+  <style>
+    :root {
+      /* Refined palette: deep navy + biomedical teal accent */
+      --gr-ink:      #0b1220;     /* near-black ink */
+      --gr-surface:  #fafbfc;     /* page surface */
+      --gr-muted:    #6b7280;     /* secondary text */
+      --gr-border:   #e6e8ec;
+      --gr-teal:     #14b8a6;     /* primary accent */
+      --gr-teal-dk:  #0d9488;
+      --gr-violet:   #7c3aed;     /* secondary accent for gradients */
+      --gr-gold:     #f59e0b;
+      --gr-hero-bg:  radial-gradient(1200px 600px at 80% -10%, rgba(20, 184, 166, 0.18), transparent 60%),
+                      radial-gradient(900px 500px at -10% 10%, rgba(124, 58, 237, 0.16), transparent 55%),
+                      linear-gradient(180deg, #fbfcfe 0%, #f6f8fb 100%);
+    }
+
+    body {
+      background: var(--gr-surface);
+      color: var(--gr-ink);
+      font-feature-settings: "ss01", "cv02", "cv11";
+    }
+
+    /* ----- Section rhythm ---------------------------------------------- */
+    .section { padding: 5rem 1.5rem; }
+    .section + .section { padding-top: 5rem; }
+
+    /* ----- Hero -------------------------------------------------------- */
+    section.hero:first-of-type {
+      background: var(--gr-hero-bg);
+      border-bottom: 1px solid var(--gr-border);
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    section.hero:first-of-type::before,
+    section.hero:first-of-type::after {
+      content: "";
+      position: absolute;
+      width: 380px; height: 380px; border-radius: 50%;
+      filter: blur(110px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    section.hero:first-of-type::before {
+      background: rgba(20, 184, 166, 0.28);
+      top: -120px; right: -80px;
+    }
+    section.hero:first-of-type::after {
+      background: rgba(124, 58, 237, 0.22);
+      bottom: -160px; left: -60px;
+    }
+    section.hero:first-of-type .hero-body { position: relative; z-index: 1; }
+
+    .publication-title {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-weight: 800 !important;
+      letter-spacing: -0.025em !important;
+      line-height: 1.15 !important;
+      font-size: clamp(2rem, 4.6vw, 3.4rem) !important;
+      color: var(--gr-ink);
+      background: linear-gradient(135deg, #0b1220 0%, #1e3a8a 60%, #14b8a6 110%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.8rem !important;
+    }
+
+    .publication-authors {
+      color: var(--gr-ink);
+    }
+    .publication-authors .author-block a {
+      color: var(--gr-ink) !important;
+      text-decoration: none;
+      border-bottom: 1px dotted transparent;
+      transition: border-color .2s ease;
+    }
+    .publication-authors .author-block a:hover { border-bottom-color: var(--gr-teal); }
+    .publication-authors sup { color: var(--gr-teal-dk); font-weight: 600; }
+
+    /* Conference pill */
+    .conf-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(20,184,166,0.12), rgba(124,58,237,0.10));
+      border: 1px solid rgba(20, 184, 166, 0.35);
+      color: var(--gr-ink);
+      font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+      font-size: 0.78rem;
+      margin: 1rem 0 0.6rem;
+    }
+    .conf-pill .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--gr-teal); box-shadow: 0 0 0 4px rgba(20,184,166,0.18);
+    }
+
+    /* Buttons in hero */
+    .publication-links { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 1.6rem; }
+    .publication-links .link-block { margin: 0 !important; }
+    .button.is-normal.is-rounded.is-dark {
+      background: var(--gr-ink) !important;
+      border: 1px solid rgba(255,255,255,0.06) !important;
+      border-radius: 12px !important;
+      padding: 0.5rem 1.1rem !important;
+      box-shadow: 0 6px 16px -8px rgba(11,18,32,0.55) !important;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease !important;
+    }
+    .button.is-normal.is-rounded.is-dark:hover {
+      background: linear-gradient(135deg, #0b1220, #1f2a44) !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 12px 24px -12px rgba(20,184,166,0.55) !important;
+    }
+
+    /* ----- Teaser figure ----------------------------------------------- */
+    section.hero.teaser { background: transparent; }
+    section.hero.teaser img {
+      border-radius: 16px;
+      box-shadow: 0 30px 60px -30px rgba(11, 18, 32, 0.25),
+                  0 0 0 1px var(--gr-border);
+    }
+    section.hero.teaser .subtitle {
+      color: var(--gr-muted);
+      max-width: 880px; margin: 1.2rem auto 0;
+      font-size: 0.98rem; line-height: 1.6;
+    }
+
+    /* ----- Highlights row ---------------------------------------------- */
+    .gr-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 980px;
+      margin: 2.4rem auto 0;
+    }
+    .gr-highlight {
+      background: white;
+      border: 1px solid var(--gr-border);
+      border-radius: 16px;
+      padding: 1.4rem 1.2rem;
+      text-align: center;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .gr-highlight:hover {
+      transform: translateY(-3px);
+      border-color: rgba(20,184,166,0.45);
+      box-shadow: 0 16px 30px -18px rgba(20,184,166,0.35);
+    }
+    .gr-highlight .num {
+      font-size: 2.0rem; font-weight: 800; line-height: 1.05;
+      background: linear-gradient(135deg, var(--gr-ink), var(--gr-teal));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+    .gr-highlight .label {
+      color: var(--gr-muted); font-size: 0.88rem; margin-top: 0.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* ----- Section headings -------------------------------------------- */
+    .title.is-3 {
+      font-weight: 800 !important;
+      letter-spacing: -0.02em !important;
+      color: var(--gr-ink) !important;
+    }
+    .title.is-3::after {
+      content: ""; display: block;
+      width: 56px; height: 3px; border-radius: 3px;
+      background: linear-gradient(90deg, var(--gr-teal), var(--gr-violet));
+      margin: 0.7rem auto 0;
+    }
+
+    /* ----- Abstract --------------------------------------------------- */
+    section.hero.is-light:nth-of-type(2) {  /* abstract uses is-light */
+      background: #ffffff !important;
+      border-top: 1px solid var(--gr-border);
+      border-bottom: 1px solid var(--gr-border);
+    }
+    .content p { font-size: 1.02rem; line-height: 1.75; color: #2a3242; }
+    .content p strong { color: var(--gr-ink); }
+
+    /* ----- Method equations ------------------------------------------- */
+    .gr-eq {
+      background: linear-gradient(180deg, #fbfdfe, #f5f8fc);
+      border: 1px solid var(--gr-border);
+      border-radius: 14px;
+      padding: 1.4rem 1.2rem;
+      margin: 1.2rem 0;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+      overflow-x: auto;
+    }
+
+    /* ----- Tables ----------------------------------------------------- */
+    .table-container {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--gr-border);
+      box-shadow: 0 6px 18px -12px rgba(11,18,32,0.15);
+    }
+    .table {
+      margin-bottom: 0;
+      font-size: 0.92rem;
+    }
+    .table thead th {
+      background: var(--gr-ink) !important;
+      color: white !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.02em;
+      border: none !important;
+    }
+    .table tbody td { vertical-align: middle; border-color: var(--gr-border) !important; }
+    .table.is-hoverable tbody tr:hover { background: rgba(20,184,166,0.05) !important; }
+    .has-background-warning-light {
+      background: linear-gradient(90deg, rgba(20,184,166,0.10), rgba(124,58,237,0.06)) !important;
+    }
+
+    /* ----- BibTeX ----------------------------------------------------- */
+    #BibTeX pre {
+      background: var(--gr-ink);
+      color: #d6dbe6;
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      font-size: 0.88rem;
+      box-shadow: 0 20px 40px -25px rgba(11,18,32,0.5);
+    }
+    .bibtex-header { display: flex; align-items: center; justify-content: space-between; }
+    .copy-bibtex-btn {
+      border: 1px solid var(--gr-border);
+      background: white;
+      border-radius: 10px;
+      padding: 0.5rem 0.9rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .copy-bibtex-btn:hover { border-color: var(--gr-teal); color: var(--gr-teal-dk); }
+
+    /* ----- Footer ----------------------------------------------------- */
+    .footer {
+      background: var(--gr-ink) !important;
+      color: #aab2c4;
+      padding: 2.5rem 1.5rem;
+    }
+    .footer a { color: var(--gr-teal) !important; }
+
+    /* ----- Mobile ----------------------------------------------------- */
+    @media (max-width: 720px) {
+      .section { padding: 3rem 1rem; }
+      section.hero:first-of-type::before,
+      section.hero:first-of-type::after { display: none; }
+    }
+  </style>
+
   <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
   {
@@ -209,10 +468,9 @@
               <span class="author-block"><sup>4</sup>Asteromorph, Inc., Korea</span>
             </div>
 
-            <div class="is-size-5 publication-authors" style="margin-top: 0.6rem;">
-              <span class="author-block"><strong>MICCAI 2026</strong></span>
-              <br>
-              <span class="eql-cntrb"><small><sup>&#9993;</sup>Corresponding author: <a href="mailto:kyskim@snu.ac.kr">kyskim@snu.ac.kr</a></small></span>
+            <div class="conf-pill"><span class="dot"></span> MICCAI 2026</div>
+            <div class="is-size-6 publication-authors">
+              <span class="eql-cntrb"><small><sup>&#9993;</sup> Corresponding author: <a href="mailto:kyskim@snu.ac.kr">kyskim@snu.ac.kr</a></small></span>
             </div>
 
             <div class="column has-text-centered">
@@ -297,6 +555,27 @@
               On the HEST-1k dataset, GeneRAG seamlessly enhances state-of-the-art models in a plug-and-play manner, improving Stem's PCC-10 from <strong>0.8322 to 0.8711</strong> (Breast). For zero-shot generalization to <strong>5,000 genes</strong>, Stem + GeneRAG achieves a PCC-5000 of <strong>0.5188</strong>, vastly outperforming DeepSpot (0.0748). GeneRAG provides robust, transparent predictions, highlighting its potential for clinical deployment.
             </p>
           </div>
+
+          <!-- Key Highlights cards -->
+          <div class="gr-highlights">
+            <div class="gr-highlight">
+              <div class="num">5,000</div>
+              <div class="label">Unseen genes predicted (zero-shot, Breast)</div>
+            </div>
+            <div class="gr-highlight">
+              <div class="num">~50</div>
+              <div class="label">Reference patches activated per query (sparse &amp; interpretable)</div>
+            </div>
+            <div class="gr-highlight">
+              <div class="num">3&times;</div>
+              <div class="label">Backbones supported plug-and-play (Stem, UNI, EXAONE-Path 2.5)</div>
+            </div>
+            <div class="gr-highlight">
+              <div class="num">7&times;</div>
+              <div class="label">PCC-5000 vs. DeepSpot on Breast (0.5188 vs 0.0748)</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -317,7 +596,7 @@
               GeneRAG formulates retrieval as a convex optimization that simultaneously enforces <em>morphological</em> and <em>biological</em> constraints. Given the Morphology Bank $D_{img}\!\in\!\mathbb{R}^{d\times N}$ (frozen visual embeddings of $N$ training spots), an Anchor Gene Bank $D_{anchor}\!\in\!\mathbb{R}^{k\times N}$ (a subset of the Full Gene Bank), and the hybrid query $(f_{img}, y_{anchor})$, GeneRAG solves the following ElasticNet problem for the sparse sampling vector $\hat{\alpha}\!\in\!\mathbb{R}^{N}$:
             </p>
 
-            <p>
+            <div class="gr-eq">
               $$
               \hat{\alpha} \;=\; \arg\min_{\alpha\in\mathbb{R}^{N}} \;
               \omega\|f_{img}-D_{img}\alpha\|_{2}^{2}
@@ -325,7 +604,7 @@
               \,+\,\gamma\lambda\|\alpha\|_{2}^{2}
               \,+\,(1-\gamma)\lambda\|\alpha\|_{1}. \qquad (1)
               $$
-            </p>
+            </div>
 
             <p>
               The first two terms balance morphology vs. biology through $\omega\!\in\![0,1]$; the ElasticNet regularizer enforces sparsity (typically $\sim\!50$ active references per query) while stabilizing the selection. Equation (1) is solved as a multi-output ElasticNet via batched FISTA, completing slide-level optimization within minutes on a single GPU.
@@ -335,11 +614,11 @@
               Given $\hat{\alpha}$, the full transcriptomic prediction is a simple linear combination over the Full Gene Bank $D_{full}$:
             </p>
 
-            <p>
+            <div class="gr-eq">
               $$
               \hat{y}_{full} \;=\; D_{full}\cdot\hat{\alpha}. \qquad (2)
               $$
-            </p>
+            </div>
 
             <p>
               Because $D_{full}$ retains the complete expression panel (including genes beyond the backbone's training subset), retrieval-based reconstruction in Eq. (2) achieves <em>zero-shot extrapolation</em> for unseen genes, leveraging the biologically conserved gene-to-gene correlations among morphologically similar reference patches.
