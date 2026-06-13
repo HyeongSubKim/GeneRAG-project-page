@@ -272,6 +272,49 @@
       color: var(--gr-muted); font-size: 0.88rem; margin-top: 0.4rem;
       letter-spacing: 0.02em;
     }
+    .gr-highlight .label small {
+      display: block; margin-top: 0.3rem;
+      color: var(--gr-text-light, #94a3b8);
+      font-size: 0.78rem; letter-spacing: 0.01em;
+    }
+
+    /* Differentiated "Plug & Play" highlight card */
+    .gr-highlight.gr-pnp {
+      background: linear-gradient(135deg, rgba(20,184,166,0.10), rgba(124,58,237,0.08));
+      border: 1px solid rgba(20,184,166,0.40);
+      position: relative;
+    }
+    .gr-highlight.gr-pnp::before {
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 0 0 0 rgba(20,184,166,0.0);
+      transition: box-shadow .25s ease;
+      pointer-events: none;
+    }
+    .gr-highlight.gr-pnp:hover::before {
+      box-shadow: 0 0 0 3px rgba(20,184,166,0.18);
+    }
+    .gr-highlight.gr-pnp .pnp-badge {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: 999px;
+      background: var(--gr-ink); color: white;
+      font-weight: 700; letter-spacing: 0.03em;
+      font-size: 1.02rem; line-height: 1.1;
+      margin: 0.2rem 0 0.7rem;
+      box-shadow: 0 10px 22px -10px rgba(11,18,32,0.55),
+                  inset 0 0 0 1px rgba(255,255,255,0.06);
+    }
+    .gr-highlight.gr-pnp .pnp-badge i {
+      color: var(--gr-teal);
+      transform: rotate(-18deg);
+      filter: drop-shadow(0 0 6px rgba(20,184,166,0.55));
+    }
+    .gr-highlight.gr-pnp .label strong {
+      color: var(--gr-teal-dk);
+      font-weight: 700;
+    }
 
     /* ----- Section headings -------------------------------------------- */
     .title.is-3 {
@@ -559,20 +602,24 @@
           <div class="gr-highlights">
             <div class="gr-highlight">
               <div class="num">5,000</div>
-              <div class="label">Unseen genes predicted (zero-shot, Breast)</div>
+              <div class="label">Unseen genes predicted (zero-shot)</div>
+            </div>
+            <div class="gr-highlight gr-pnp">
+              <div class="pnp-badge">
+                <i class="fas fa-plug"></i>
+                <span>Plug &amp; Play</span>
+              </div>
+              <div class="label">Model-agnostic — works with <strong>any</strong> Image-to-ST backbone<br><small>Validated on Stem, UNI, EXAONE-Path 2.5</small></div>
             </div>
             <div class="gr-highlight">
               <div class="num">~50</div>
               <div class="label">Reference patches activated per query (sparse &amp; interpretable)</div>
             </div>
-            <div class="gr-highlight">
-              <div class="num">3&times;</div>
-              <div class="label">Backbones supported plug-and-play (Stem, UNI, EXAONE-Path 2.5)</div>
-            </div>
-            <div class="gr-highlight">
+
+            <!-- <div class="gr-highlight">
               <div class="num">7&times;</div>
               <div class="label">PCC-5000 vs. DeepSpot on Breast (0.5188 vs 0.0748)</div>
-            </div>
+            </div> -->
           </div>
 
         </div>
