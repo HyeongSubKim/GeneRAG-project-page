@@ -420,7 +420,7 @@
     ],
     "datePublished": "2026",
     "publisher": { "@type": "Organization", "name": "MICCAI 2026" },
-    "url": "hyeongsubkim.github.io/GeneRAG",
+    "url": "subykim.github.io/GeneRAG",
     "image": "https://YOUR_DOMAIN/GeneRAG/static/images/social_preview.png",
     "keywords": ["Spatial transcriptomics", "Retrieval-augmented generation", "Whole-transcriptome", "Gene expression prediction", "Foundation models"],
     "isAccessibleForFree": true,
@@ -527,8 +527,7 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <!-- TODO: Export Fig. 1 from the paper to static/images/fig1_architecture.png -->
-        <img src="static/images/fig1_architecture.png"
+        <img src="static/images/fig1_architecture.jpg"
              alt="GeneRAG framework overview: a frozen encoder and decoder produce a hybrid query that retrieves from a pre-constructed Reference Bank."
              loading="lazy"
              style="width:100%; max-width:1100px; margin:0 auto; display:block;">
@@ -625,9 +624,8 @@
             </p>
           </div>
 
-          <!-- TODO: Export Fig. 2 from the paper to static/images/fig2_retrieval.png -->
           <figure class="image" style="margin-top: 2rem;">
-            <img src="static/images/fig2_retrieval.png"
+            <img src="static/images/fig2_retrieval.jpg"
                  alt="Two-panel diagram. (a) Dual-Constrained Retrieval: ElasticNet outputs the sparse sampling matrix from the morphology and anchor-gene queries. (b) Full Gene Reconstruction: the sparse weights are applied to the Full Gene Bank to recover the entire expression panel."
                  loading="lazy">
             <figcaption class="has-text-centered" style="margin-top: 0.6rem;">
@@ -761,21 +759,22 @@
       - Top-5 retrieved reference patches with their gene expressions (interpretability)
     Remove this section if not needed.
   -->
+  <!--
+    Drop qualitative figures (e.g. unseen-gene heatmaps, top-5 retrieved patches)
+    into static/images/qualitative_*.jpg and uncomment this block.
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
         <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
         <div id="results-carousel" class="carousel results-carousel">
           <div class="item">
-            <!-- TODO: replace with qualitative figure 1 -->
-            <img src="static/images/qualitative_1.png" alt="Qualitative spatial gene-expression heatmap for an unseen gene" loading="lazy"/>
+            <img src="static/images/qualitative_1.jpg" alt="Qualitative spatial gene-expression heatmap for an unseen gene" loading="lazy"/>
             <h2 class="subtitle has-text-centered">
               Predicted spatial expression for an unseen gene across the hybrid retrieval weight $\omega$.
             </h2>
           </div>
           <div class="item">
-            <!-- TODO: replace with qualitative figure 2 -->
-            <img src="static/images/qualitative_2.png" alt="Top-5 retrieved reference patches" loading="lazy"/>
+            <img src="static/images/qualitative_2.jpg" alt="Top-5 retrieved reference patches" loading="lazy"/>
             <h2 class="subtitle has-text-centered">
               Top-5 retrieved reference patches sharing morphological and transcriptomic profiles.
             </h2>
@@ -784,6 +783,8 @@
       </div>
     </div>
   </section>
+  -->
+  <section class="hero is-small" style="display:none"></section>
   <!-- End qualitative -->
 
 
