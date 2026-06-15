@@ -312,13 +312,16 @@
     /* ----- Tables ----------------------------------------------------- */
     .table-container {
       border-radius: 8px;
-      overflow: hidden;
+      overflow-x: auto;            /* horizontal scroll if needed on small screens */
+      overflow-y: hidden;
       border: 1px solid var(--gr-border);
       box-shadow: none;
+      -webkit-overflow-scrolling: touch;
     }
     .table {
       margin-bottom: 0;
-      font-size: 0.92rem;
+      font-size: 0.88rem;
+      min-width: 760px;
       background: white;
     }
     .table thead th {
@@ -683,7 +686,7 @@
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
-        <div class="column is-four-fifths">
+        <div class="column is-full">
 
           <h2 class="title is-3 has-text-centered">In-Domain Calibration (Core HVG)</h2>
 
@@ -737,7 +740,7 @@
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
-        <div class="column is-four-fifths">
+        <div class="column is-full">
 
           <h2 class="title is-3 has-text-centered">Zero-Shot Extrapolation (Global HVG, 5,000 genes)</h2>
 
