@@ -357,6 +357,22 @@
     .gr-yes { color: var(--gr-accent); font-weight: 700; font-size: 1.05em; }
     .gr-no  { color: var(--gr-faint); font-size: 0.95em; }
 
+    /* Inline accent pill — e.g. "ZERO-SHOT" tag inside highlight labels */
+    .gr-tag {
+      display: inline-block;
+      padding: 0.18rem 0.55rem;
+      margin-left: 0.35rem;
+      border-radius: 4px;
+      background: var(--gr-tint);
+      color: var(--gr-accent-ink);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      vertical-align: middle;
+      border: 1px solid rgba(15,118,110,0.2);
+    }
+
     /* ----- BibTeX ----------------------------------------------------- */
     #BibTeX pre {
       background: var(--gr-ink);
@@ -543,7 +559,7 @@
              loading="lazy"
              style="width:100%; max-width:1100px; margin:0 auto; display:block;">
         <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
-          <strong>Overview of GeneRAG.</strong> At test time, a frozen encoder $\mathcal{E}$ and decoder $\mathcal{D}$ produce a feature embedding $f_{img}$ and an initial gene prediction $\hat{y}_{init}$. These form a <em>Hybrid Query</em> used to retrieve from a pre-constructed Trainset Reference Bank, yielding the full gene-expression prediction $\hat{y}_{full}$ &mdash; including genes that were never in the backbone's training panel.
+          <strong>Overview of GeneRAG.</strong> At test time, a frozen encoder $\mathcal{E}$ and decoder $\mathcal{D}$ produce a feature embedding $f_{img}$ and an initial gene prediction $\hat{y}_{init}$. These form a <em>Hybrid Query</em> used to retrieve from a pre-constructed Reference Bank, yielding the full gene-expression prediction $\hat{y}_{full}$ &mdash; including genes that were never in the backbone's training panel.
         </h2>
       </div>
     </div>
@@ -568,9 +584,12 @@
 
           <!-- Key Highlights cards -->
           <div class="gr-highlights">
-            <div class="gr-highlight">
-              <div class="num">5,000</div>
-              <div class="label">Unseen genes predicted (zero-shot)</div>
+            <div class="gr-highlight gr-pnp">
+              <div class="pnp-badge">
+                <i class="fas fa-bolt"></i>
+                <span>Zero-Shot</span>
+              </div>
+              <div class="label">Predicts <strong>5,000</strong> unseen genes per spot<br><small>No fine-tuning, no re-training</small></div>
             </div>
             <div class="gr-highlight gr-pnp">
               <div class="pnp-badge">
@@ -579,9 +598,12 @@
               </div>
               <div class="label">Model-agnostic — works with <strong>any</strong> Image-to-ST backbone<br><small>Validated on Stem, UNI, EXAONE-Path 2.5</small></div>
             </div>
-            <div class="gr-highlight">
-              <div class="num">~50</div>
-              <div class="label">Reference patches activated per query (sparse &amp; interpretable)</div>
+            <div class="gr-highlight gr-pnp">
+              <div class="pnp-badge">
+                <i class="fas fa-eye"></i>
+                <span>Interpretable</span>
+              </div>
+              <div class="label">Sparse retrieval — <strong>~50</strong> reference patches per query<br><small>Each weight traces back to a training spot</small></div>
             </div>
 
             <!-- <div class="gr-highlight">
@@ -777,17 +799,18 @@
   <!--
     Drop qualitative figures (e.g. unseen-gene heatmaps, top-5 retrieved patches)
     into static/images/qualitative_*.jpg and uncomment this block.
+  -->
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
         <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
         <div id="results-carousel" class="carousel results-carousel">
-          <div class="item">
+          <!-- <div class="item">
             <img src="static/images/qualitative_1.jpg" alt="Qualitative spatial gene-expression heatmap for an unseen gene" loading="lazy"/>
             <h2 class="subtitle has-text-centered">
               Predicted spatial expression for an unseen gene across the hybrid retrieval weight $\omega$.
             </h2>
-          </div>
+          </div> -->
           <div class="item">
             <img src="static/images/qualitative_2.jpg" alt="Top-5 retrieved reference patches" loading="lazy"/>
             <h2 class="subtitle has-text-centered">
@@ -798,7 +821,7 @@
       </div>
     </div>
   </section>
-  -->
+
   <section class="hero is-small" style="display:none"></section>
   <!-- End qualitative -->
 
