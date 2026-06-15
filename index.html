@@ -376,6 +376,41 @@
       border: 1px solid rgba(15,118,110,0.2);
     }
 
+    /* ----- TL;DR ------------------------------------------------------ */
+    .gr-tldr {
+      max-width: 880px;
+      margin: 0 auto;
+      background: white;
+      border: 1px solid var(--gr-border);
+      border-left: 2px solid var(--gr-accent);
+      border-radius: 8px;
+      padding: 1.7rem 1.9rem;
+    }
+    .gr-tldr .tldr-kicker {
+      display: inline-block;
+      font-size: 0.74rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gr-accent-ink);
+      margin: 0 0 1.1rem;
+    }
+    .gr-tldr ul { list-style: none; margin: 0; padding: 0; }
+    .gr-tldr li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin: 0.75rem 0;
+      color: var(--gr-ink-soft);
+      font-size: 1.0rem; line-height: 1.62;
+    }
+    .gr-tldr li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0.62em;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gr-accent);
+    }
+    .gr-tldr li strong { color: var(--gr-ink); font-weight: 600; }
+
     /* ----- BibTeX ----------------------------------------------------- */
     #BibTeX pre {
       background: var(--gr-ink);
@@ -568,6 +603,22 @@
     </div>
   </section>
   <!-- End teaser figure -->
+
+
+  <!-- ============================ TL;DR ============================ -->
+  <section class="section" style="padding-top: 2.5rem; padding-bottom: 0;">
+    <div class="container is-max-desktop">
+      <div class="gr-tldr">
+        <span class="tldr-kicker">TL;DR</span>
+        <ul>
+          <li><strong>Knowledge Expansion via RAG.</strong> GeneRAG overcomes the closed-loop, fixed-parameter limitation of conventional models by decoupling knowledge storage from training &mdash; an expandable Reference Bank is retrieved at inference time, with no weight updates needed to grow or swap knowledge.</li>
+          <li><strong>Zero-Shot Prediction.</strong> It enhances any base model and successfully reconstructs thousands of genes never seen during the backbone&rsquo;s training &mdash; up to <strong>5,000</strong> unseen genes per spot &mdash; without fine-tuning.</li>
+          <li><strong>Plug-and-Play.</strong> A model-agnostic design integrates seamlessly with any existing Image-to-ST architecture (e.g. Stem, UNI, EXAONE-Path 2.5) &mdash; no structural modification, no re-training.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- End TL;DR -->
 
 
   <!-- ============================ Abstract ============================ -->
