@@ -570,38 +570,6 @@
   <!-- End teaser figure -->
 
 
-  <!-- ============================ Key Highlights ============================ -->
-  <section class="section" style="padding-top: 2.5rem; padding-bottom: 0;">
-    <div class="container is-max-desktop">
-      <!-- Key Highlights cards -->
-      <div class="gr-highlights" style="margin-top: 0;">
-        <div class="gr-highlight gr-pnp">
-          <div class="pnp-badge">
-            <i class="fas fa-bolt"></i>
-            <span>Zero-Shot</span>
-          </div>
-          <div class="label">Predicts <strong>5,000</strong> unseen genes per spot<br><small>No fine-tuning, no re-training</small></div>
-        </div>
-        <div class="gr-highlight gr-pnp">
-          <div class="pnp-badge">
-            <i class="fas fa-plug"></i>
-            <span>Plug &amp; Play</span>
-          </div>
-          <div class="label">Model-agnostic — works with <strong>any</strong> Image-to-ST backbone<br><small>Validated on Stem, UNI, EXAONE-Path 2.5</small></div>
-        </div>
-        <div class="gr-highlight gr-pnp">
-          <div class="pnp-badge">
-            <i class="fas fa-eye"></i>
-            <span>Interpretable</span>
-          </div>
-          <div class="label">Sparse retrieval — <strong>~50</strong> reference patches per query<br><small>Each weight traces back to a training spot</small></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Key Highlights -->
-
-
   <!-- ============================ Abstract ============================ -->
   <section class="section hero is-light">
     <div class="container is-max-desktop">
@@ -615,6 +583,31 @@
             <p>
               On the HEST-1k dataset, GeneRAG seamlessly enhances state-of-the-art models in a plug-and-play manner, improving Stem's PCC-10 from <strong>0.8322 to 0.8711</strong> (Breast). For zero-shot generalization to <strong>5,000 genes</strong>, Stem + GeneRAG achieves a PCC-5000 of <strong>0.5188</strong>, vastly outperforming DeepSpot (0.0748). GeneRAG provides robust, transparent predictions, highlighting its potential for clinical deployment.
             </p>
+          </div>
+
+          <!-- Key Highlights cards -->
+          <div class="gr-highlights">
+            <div class="gr-highlight gr-pnp">
+              <div class="pnp-badge">
+                <i class="fas fa-bolt"></i>
+                <span>Zero-Shot</span>
+              </div>
+              <div class="label">Predicts <strong>5,000</strong> unseen genes per spot<br><small>No fine-tuning, no re-training</small></div>
+            </div>
+            <div class="gr-highlight gr-pnp">
+              <div class="pnp-badge">
+                <i class="fas fa-plug"></i>
+                <span>Plug &amp; Play</span>
+              </div>
+              <div class="label">Model-agnostic — works with <strong>any</strong> Image-to-ST backbone<br><small>Validated on Stem, UNI, EXAONE-Path 2.5</small></div>
+            </div>
+            <div class="gr-highlight gr-pnp">
+              <div class="pnp-badge">
+                <i class="fas fa-eye"></i>
+                <span>Interpretable</span>
+              </div>
+              <div class="label">Sparse retrieval — <strong>~50</strong> reference patches per query<br><small>Each weight traces back to a training spot</small></div>
+            </div>
           </div>
 
         </div>
