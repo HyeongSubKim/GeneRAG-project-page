@@ -800,23 +800,20 @@
     Drop qualitative figures (e.g. unseen-gene heatmaps, top-5 retrieved patches)
     into static/images/qualitative_*.jpg and uncomment this block.
   -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
-        <div id="results-carousel" class="carousel results-carousel">
-          <!-- <div class="item">
-            <img src="static/images/qualitative_1.jpg" alt="Qualitative spatial gene-expression heatmap for an unseen gene" loading="lazy"/>
-            <h2 class="subtitle has-text-centered">
-              Predicted spatial expression for an unseen gene across the hybrid retrieval weight $\omega$.
-            </h2>
-          </div> -->
-          <div class="item">
-            <img src="static/images/qualitative_2.jpg" alt="Top-5 retrieved reference patches" loading="lazy"/>
-            <h2 class="subtitle has-text-centered">
-              Top-5 retrieved reference patches sharing morphological and transcriptomic profiles.
-            </h2>
-          </div>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+          <figure class="image" style="margin-top: 1.4rem;">
+            <img src="static/images/qualitative_2.jpg"
+                 alt="Top-5 retrieved reference patches sharing morphological and transcriptomic profiles"
+                 loading="lazy"
+                 style="width:100%; border-radius: 8px; border: 1px solid var(--gr-border);">
+            <figcaption class="has-text-centered" style="margin-top: 0.8rem; color: var(--gr-muted); font-size: 0.95rem;">
+              Top-5 retrieved reference patches share both morphological and transcriptomic profiles with the target spot, providing transparent, biologically plausible rationales for each prediction.
+            </figcaption>
+          </figure>
         </div>
       </div>
     </div>
