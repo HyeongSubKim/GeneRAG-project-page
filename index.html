@@ -393,23 +393,12 @@
       color: var(--gr-accent-ink);
       margin: 0 0 1.1rem;
     }
-    .gr-tldr ul { list-style: none; margin: 0; padding: 0; }
-    .gr-tldr li {
-      position: relative;
-      padding-left: 1.4rem;
-      margin: 0.75rem 0;
+    .gr-tldr p {
+      margin: 0;
       color: var(--gr-ink-soft);
-      font-size: 1.0rem; line-height: 1.62;
+      font-size: 1.12rem; line-height: 1.66;
     }
-    .gr-tldr li::before {
-      content: "";
-      position: absolute;
-      left: 0; top: 0.62em;
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--gr-accent);
-    }
-    .gr-tldr li strong { color: var(--gr-ink); font-weight: 600; }
+    .gr-tldr p strong { color: var(--gr-ink); font-weight: 600; }
 
     /* ----- BibTeX ----------------------------------------------------- */
     #BibTeX pre {
@@ -610,11 +599,9 @@
     <div class="container is-max-desktop">
       <div class="gr-tldr">
         <span class="tldr-kicker">TL;DR</span>
-        <ul>
-          <li><strong>Knowledge Expansion via RAG.</strong> GeneRAG overcomes the closed-loop, fixed-parameter limitation of conventional models by decoupling knowledge storage from training &mdash; an expandable Reference Bank is retrieved at inference time, with no weight updates needed to grow or swap knowledge.</li>
-          <li><strong>Zero-Shot Prediction.</strong> It enhances any base model and successfully reconstructs thousands of genes never seen during the backbone&rsquo;s training &mdash; up to <strong>5,000</strong> unseen genes per spot &mdash; without fine-tuning.</li>
-          <li><strong>Plug-and-Play.</strong> A model-agnostic design integrates seamlessly with any existing Image-to-ST architecture (e.g. Stem, UNI, EXAONE-Path 2.5) &mdash; no structural modification, no re-training.</li>
-        </ul>
+        <p>
+          GeneRAG turns any closed-loop H&amp;E-to-gene model into a <strong>retrieval-augmented</strong> one, expanding its fixed knowledge with an external Reference Bank queried at inference. Plug-and-play and model-agnostic, it predicts <strong>5,000+ unseen genes</strong> per spot with <strong>no retraining required</strong>.
+        </p>
       </div>
     </div>
   </section>
