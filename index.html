@@ -376,30 +376,6 @@
       border: 1px solid rgba(15,118,110,0.2);
     }
 
-    /* ----- TL;DR ------------------------------------------------------ */
-    .gr-tldr {
-      max-width: 880px;
-      margin: 0 auto;
-      background: white;
-      border: 1px solid var(--gr-border);
-      border-left: 2px solid var(--gr-accent);
-      border-radius: 8px;
-      padding: 1.7rem 1.9rem;
-    }
-    .gr-tldr .tldr-kicker {
-      display: inline-block;
-      font-size: 0.74rem; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--gr-accent-ink);
-      margin: 0 0 1.1rem;
-    }
-    .gr-tldr p {
-      margin: 0;
-      color: var(--gr-ink-soft);
-      font-size: 1.12rem; line-height: 1.66;
-    }
-    .gr-tldr p strong { color: var(--gr-ink); font-weight: 600; }
-
     /* ----- BibTeX ----------------------------------------------------- */
     #BibTeX pre {
       background: var(--gr-ink);
@@ -594,18 +570,36 @@
   <!-- End teaser figure -->
 
 
-  <!-- ============================ TL;DR ============================ -->
+  <!-- ============================ Key Highlights ============================ -->
   <section class="section" style="padding-top: 2.5rem; padding-bottom: 0;">
     <div class="container is-max-desktop">
-      <div class="gr-tldr">
-        <span class="tldr-kicker">TL;DR</span>
-        <p>
-          GeneRAG turns any closed-loop H&amp;E-to-gene model into a <strong>retrieval-augmented</strong> one, expanding its fixed knowledge with an external Reference Bank queried at inference. Plug-and-play and model-agnostic, it predicts <strong>5,000+ unseen genes</strong> per spot with <strong>no retraining required</strong>.
-        </p>
+      <!-- Key Highlights cards -->
+      <div class="gr-highlights" style="margin-top: 0;">
+        <div class="gr-highlight gr-pnp">
+          <div class="pnp-badge">
+            <i class="fas fa-bolt"></i>
+            <span>Zero-Shot</span>
+          </div>
+          <div class="label">Predicts <strong>5,000</strong> unseen genes per spot<br><small>No fine-tuning, no re-training</small></div>
+        </div>
+        <div class="gr-highlight gr-pnp">
+          <div class="pnp-badge">
+            <i class="fas fa-plug"></i>
+            <span>Plug &amp; Play</span>
+          </div>
+          <div class="label">Model-agnostic — works with <strong>any</strong> Image-to-ST backbone<br><small>Validated on Stem, UNI, EXAONE-Path 2.5</small></div>
+        </div>
+        <div class="gr-highlight gr-pnp">
+          <div class="pnp-badge">
+            <i class="fas fa-eye"></i>
+            <span>Interpretable</span>
+          </div>
+          <div class="label">Sparse retrieval — <strong>~50</strong> reference patches per query<br><small>Each weight traces back to a training spot</small></div>
+        </div>
       </div>
     </div>
   </section>
-  <!-- End TL;DR -->
+  <!-- End Key Highlights -->
 
 
   <!-- ============================ Abstract ============================ -->
@@ -621,36 +615,6 @@
             <p>
               On the HEST-1k dataset, GeneRAG seamlessly enhances state-of-the-art models in a plug-and-play manner, improving Stem's PCC-10 from <strong>0.8322 to 0.8711</strong> (Breast). For zero-shot generalization to <strong>5,000 genes</strong>, Stem + GeneRAG achieves a PCC-5000 of <strong>0.5188</strong>, vastly outperforming DeepSpot (0.0748). GeneRAG provides robust, transparent predictions, highlighting its potential for clinical deployment.
             </p>
-          </div>
-
-          <!-- Key Highlights cards -->
-          <div class="gr-highlights">
-            <div class="gr-highlight gr-pnp">
-              <div class="pnp-badge">
-                <i class="fas fa-bolt"></i>
-                <span>Zero-Shot</span>
-              </div>
-              <div class="label">Predicts <strong>5,000</strong> unseen genes per spot<br><small>No fine-tuning, no re-training</small></div>
-            </div>
-            <div class="gr-highlight gr-pnp">
-              <div class="pnp-badge">
-                <i class="fas fa-plug"></i>
-                <span>Plug &amp; Play</span>
-              </div>
-              <div class="label">Model-agnostic — works with <strong>any</strong> Image-to-ST backbone<br><small>Validated on Stem, UNI, EXAONE-Path 2.5</small></div>
-            </div>
-            <div class="gr-highlight gr-pnp">
-              <div class="pnp-badge">
-                <i class="fas fa-eye"></i>
-                <span>Interpretable</span>
-              </div>
-              <div class="label">Sparse retrieval — <strong>~50</strong> reference patches per query<br><small>Each weight traces back to a training spot</small></div>
-            </div>
-
-            <!-- <div class="gr-highlight">
-              <div class="num">7&times;</div>
-              <div class="label">PCC-5000 vs. DeepSpot on Breast (0.5188 vs 0.0748)</div>
-            </div> -->
           </div>
 
         </div>
